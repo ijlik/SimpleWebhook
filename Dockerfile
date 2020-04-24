@@ -1,10 +1,10 @@
 FROM node:12.0-alpine
 
-WORKDIR /app
-
 RUN apk update && apk upgrade && apk add --no-cache bash git openssh
 
 USER node
+
+WORKDIR /app
 
 COPY package.* ./
 

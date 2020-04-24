@@ -1,4 +1,4 @@
-require('dotenv').config({ path: './.env' })
+// require('dotenv').config({ path: './.env' })
 
 var http = require('http')
 var createHandler = require('github-webhook-handler')

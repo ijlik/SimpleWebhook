@@ -4,6 +4,8 @@ RUN apk update && apk upgrade && apk add --no-cache bash git openssh
 
 USER node
 
+RUN mkdir -p /home/node/app
+
 WORKDIR /home/node/app
 
 COPY package.* ./

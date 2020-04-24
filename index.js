@@ -1,9 +1,7 @@
-// require('dotenv').config({ path: './.env' })
-
 var http = require('http')
 var createHandler = require('github-webhook-handler')
 var handler = createHandler({ path: process.env.HANDLER_PATH, secret: process.env.HANDLER_SECRET })
-const simpleGit = require('simple-git')(process.env.GIT_REPOSITORY_PATH)
+const simpleGit = require('simple-git')("/repository")
 
 console.log(process.env.HANDLER_PATH)
 

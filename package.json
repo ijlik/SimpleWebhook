@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "github-webhook-handler": "^1.0.0",
     "nodemon": "^2.0.3",
     "simple-git": "^1.132.0"
   }

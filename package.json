@@ -1,6 +1,6 @@
 {
-  "name": "Simple Webhook",
-  "version": "0.1",
+  "name": "SimpleWebhook",
+  "version": "",
   "description": "Simple container to make your repository pulling automaticly when updated on git",
   "main": "index.js",
   "scripts": {

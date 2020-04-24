@@ -1,9 +1,15 @@
-var http = require('http')
-var createHandler = require('github-webhook-handler')
-var handler = createHandler({ path: process.env.HANDLER_PATH, secret: process.env.HANDLER_SECRET })
-const simpleGit = require('simple-git')("/repository")
+const http = require('http');
+const createHandler = require('github-webhook-handler');
+const handler = createHandler({ path: process.env.HANDLER_PATH, secret: process.env.HANDLER_SECRET });
+const simpleGit = require('simple-git')("/repository");
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 
-console.log(process.env.HANDLER_PATH)
+const GIT_USERNAME = process.env.GIT_USERNAME;
+const GIT_TOKEN = process.env.GIT_TOKEN;
+const GIT_SOURCE = process.env.GIT_SOURCE;
+
+exec('echo https://${GIT_USERNAME}:${GIT_TOKEN}@${GIT_SOURCE} > ~/.git-credentials && cd /repository && git config credential.helper store').then(() => console.log("credential updated"))
 
 http.createServer(function (req, res) {
   handler(req, res, function (err) {

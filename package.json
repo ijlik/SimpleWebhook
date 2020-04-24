@@ -1,18 +1,16 @@
 {
-  "name": "github-webhook",
-  "version": "1.0.0",
-  "description": "",
+  "name": "Simple Webhook",
+  "version": "0.1",
+  "description": "Simple container to make your repository pulling automaticly when updated on git",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Miqdad Yanuar Farcha",
   "license": "ISC",
   "dependencies": {
     "github-webhook-handler": "^1.0.0",
-    "nodemon": "^2.0.3",
     "simple-git": "^1.132.0"
   }
 }

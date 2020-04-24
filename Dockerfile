@@ -4,8 +4,6 @@ RUN apk update && apk upgrade && apk add --no-cache bash git openssh
 
 USER node
 
-RUN echo "https://$GIT_USERNAME:$GIT_TOKEN@$GIT_SOURCE" > ~/.git-credentials
-
 RUN mkdir -p /home/node/app
 
 WORKDIR /home/node/app

@@ -2,7 +2,11 @@ FROM node:12.0-alpine
 
 RUN apk update && apk upgrade && apk add --no-cache bash git openssh
 
+RUN git config credential.helper store
+
 USER node
+
+RUN echo "https://$GIT_USERNAME:$GIT_TOKEN@$GIT_SOURCE" > ~/.git-credentials
 
 RUN mkdir -p /home/node/app
 
@@ -29,8 +33,6 @@ ENV GIT_REPOSITORY_REF refs/heads/master
 ENV GIT_REPOSITORY_REMOTE origin
 
 ENV GIT_REPOSITORY_BRANCH master
-
-RUN bash credentials.sh
 
 EXPOSE 7777
 

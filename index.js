@@ -9,7 +9,12 @@ const GIT_USERNAME = process.env.GIT_USERNAME;
 const GIT_TOKEN = process.env.GIT_TOKEN;
 const GIT_SOURCE = process.env.GIT_SOURCE;
 
-exec('echo https://${GIT_USERNAME}:${GIT_TOKEN}@${GIT_SOURCE} > ~/.git-credentials && cd /repository && git config credential.helper store').then(() => console.log("credential updated"))
+exec('echo https://${GIT_USERNAME}:${GIT_TOKEN}@${GIT_SOURCE} > ~/.git-credentials \\
+     && cd /repository \\
+     && git config credential.helper store \\
+     && git config --global user.email "git-puller@github.com" 
+     && git config --global user.name "Github Puller" ')
+       .then(() => console.log("credential updated"))
 
 http.createServer(function (req, res) {
   handler(req, res, function (err) {

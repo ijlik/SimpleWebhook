@@ -14,7 +14,9 @@ const commands = [
 	`cd /repository`,
 	`git config --global credential.helper store`,
 	`git config --global user.email "git-puller@github.com"`,
-	`git config --global user.name "Github Puller"`
+	`git config --global user.name "Github Puller"`,
+	`git config --global --unset http.proxy`,
+	`git config --global --unset https.proxy`
 ];
 
 commands.forEach((command) => {
@@ -27,10 +29,7 @@ commands.forEach((command) => {
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
     res.statusCode = 404
-    res.send({
-			statusCode: 404,
-			message: 'Not Found'
-		});
+    res.end('Path location not found');
   })
 }).listen(7777)
 

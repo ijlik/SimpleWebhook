@@ -10,7 +10,7 @@ const GIT_TOKEN = process.env.GIT_TOKEN;
 const GIT_SOURCE = process.env.GIT_SOURCE;
 
 const commands = [
-	`echo https://${GIT_USERNAME}:${GIT_TOKEN}@${GIT_SOURCE} > ~/.git-credential`,
+	`echo https://${GIT_USERNAME}:${GIT_TOKEN}@${GIT_SOURCE} > ~/.git-credentials`,
 	`cd /repository`,
 	`git config --global credential.helper store`,
 	`git config --global user.email "git-puller@github.com"`,
@@ -27,7 +27,7 @@ commands.forEach((command) => {
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
     res.statusCode = 404
-    res.json({
+    res.send({
 			statusCode: 404,
 			message: 'Not Found'
 		});
